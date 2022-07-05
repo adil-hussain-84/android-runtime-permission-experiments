@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">Location Permissions App1</string>
+
+    <string name="location_permission_rationale">Sharing your location will improve your experience of this app.</string>
+    <string name="should_show_location_permission_rationale">Should show location permission rationale?</string>
+    <string name="request_location_permission">Request location permission</string>
+
+    <string name="allow">Allow</string>
+    <string name="deny">Deny</string>
+
+</resources>
