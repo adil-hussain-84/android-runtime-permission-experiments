@@ -13,29 +13,21 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
 
     private val locationPermissionRequest =
-        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { updateTextView() }
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { updateTextViews() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        findViewById<View>(R.id.shouldShowLocationPermissionRationaleButton).setOnClickListener { shouldShowLocationPermissionRationale() }
         findViewById<View>(R.id.requestLocationPermissionButton).setOnClickListener { requestLocationPermission() }
     }
 
     override fun onStart() {
         super.onStart()
-        updateTextView()
+        updateTextViews()
     }
 
-    private fun shouldShowLocationPermissionRationale() {
-        val message =
-            if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)) {
-                "Yes"
-            } else {
-                "No"
-            }
-        showToast(message)
+    private fun shouldShowLocationPermissionRationale(): Boolean {
+        return shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)
     }
 
     private fun requestLocationPermission() {
@@ -46,7 +38,6 @@ class MainActivity : AppCompatActivity() {
 
         if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)) {
             val message = getString(R.string.location_permission_rationale)
-
             val positiveButtonText = getString(android.R.string.ok)
 
             AlertDialog.Builder(this)
@@ -72,14 +63,23 @@ class MainActivity : AppCompatActivity() {
         locationPermissionRequest.launch(permissions)
     }
 
-    private fun updateTextView() {
-        findViewById<TextView>(R.id.textView).text = if (isLocationPermissionGranted()) {
-            "The app has location permission."
-        } else {
-            "The app does not have location permission."
-        }
+    private fun updateTextViews() {
+        findViewById<TextView>(R.id.isLocationPermissionGrantedTextView).text =
+            if (isLocationPermissionGranted()) {
+                "Is location permission granted? Yes"
+            } else {
+                "Is location permission granted? No"
+            }
+
+        findViewById<TextView>(R.id.shouldShowRequestPermissionRationaleTextView).text =
+            if (shouldShowLocationPermissionRationale()) {
+                "Should show request permission rationale? Yes"
+            } else {
+                "Should show request permission rationale? No"
+            }
     }
 
+    @Suppress("SameParameterValue")
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
