@@ -5,8 +5,7 @@ However, more importantly, it demonstrates a gaping hole in the Android "request
 runtime" APIs. That is, it is impossible to distinguish the following two cases:
 
 1. The user has never denied the permission request.
-2. The user has denied the permission request twice and therefore cannot be asked for the permission
-   again.
+2. The user has denied the permission request twice.
 
 The reason why the above two cases are indistinguishable is because in both cases
 the [shouldShowRequestPermissionRationale(permission:)](https://developer.android.com/reference/android/app/Activity#shouldShowRequestPermissionRationale(java.lang.String))
