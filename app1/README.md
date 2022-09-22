@@ -16,10 +16,10 @@ returns [PackageManager.PERMISSION_DENIED](https://developer.android.com/referen
 .
 
 At this stage, you're probably thinking: Why is it important to distinguish between these two cases?
-It is important because the Android OS will reject the app's attempts at requesting permission from
-the user after the user has denied the permission twice. It is necessary, therefore, for the app to
-distinguish between the above two cases and, in the latter case, to show a message to the user
-asking them to enable the permission via the device's Settings app.
+It is important because the Android operating system will reject the app's attempts at requesting
+permission from the user after the user has denied the permission twice. It is necessary, therefore,
+for the app to distinguish between the above two cases and, in the latter case, to show a message to
+the user asking them to enable the permission via the device's Settings app.
 
 Here's an example of the app running on an Android 13 device:
 
