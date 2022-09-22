@@ -29,11 +29,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun shouldShowLocationPermissionRationale() {
-        val message = if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)) {
-            "Yes"
-        } else {
-            "No"
-        }
+        val message =
+            if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)) {
+                "Yes"
+            } else {
+                "No"
+            }
         showToast(message)
     }
 
@@ -46,13 +47,11 @@ class MainActivity : AppCompatActivity() {
         if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)) {
             val message = getString(R.string.location_permission_rationale)
 
-            val negativeButtonText = getString(R.string.deny)
-            val positiveButtonText = getString(R.string.allow)
+            val positiveButtonText = getString(android.R.string.ok)
 
             AlertDialog.Builder(this)
                 .setCancelable(false)
                 .setMessage(message)
-                .setNegativeButton(negativeButtonText, null)
                 .setPositiveButton(positiveButtonText) { _, _ -> askForGeolocationPermission() }
                 .show()
         } else {

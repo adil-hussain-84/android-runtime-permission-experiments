@@ -4,23 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="16dp"
     tools:context="com.tazkiyatech.app.MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         tools:text="The app does not have location permission" />
 
     <Button
         android:id="@+id/shouldShowLocationPermissionRationaleButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/should_show_location_permission_rationale" />
 
     <Button
         android:id="@+id/requestLocationPermissionButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/request_location_permission" />
 
@@ -29,7 +34,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:constraint_referenced_ids="textView,shouldShowLocationPermissionRationaleButton,requestLocationPermissionButton"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
