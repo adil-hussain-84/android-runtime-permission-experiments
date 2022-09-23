@@ -1,4 +1,4 @@
-# Request runtime permissions example workaround for API limitations
+# Request runtime permissions workaround for API limitations
 
 This Android application demonstrates a workaround for the "request permission at runtime" API
 limitation demonstrated in [app1](../app1).

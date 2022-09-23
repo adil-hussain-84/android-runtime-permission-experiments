@@ -14,7 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "android-location-permission-experiments"
+rootProject.name = "android-runtime-permission-experiments"
 
 include ':app1'
 include ':app2'
