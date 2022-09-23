@@ -1,4 +1,4 @@
-# Request location permissions example
+# Request runtime permissions example and problem statement
 
 This Android application demonstrates how to request location permissions from users at runtime.
 However, more importantly, it demonstrates a gaping hole in the Android "request permission at
@@ -12,8 +12,7 @@ the [shouldShowRequestPermissionRationale(permission:)](https://developer.androi
 method returns `false` and
 the [checkSelfPermission(permission:)](https://developer.android.com/reference/android/content/ContextWrapper#checkSelfPermission(java.lang.String))
 method
-returns [PackageManager.PERMISSION_DENIED](https://developer.android.com/reference/android/content/pm/PackageManager#PERMISSION_DENIED)
-.
+returns [PackageManager.PERMISSION_DENIED](https://developer.android.com/reference/android/content/pm/PackageManager#PERMISSION_DENIED).
 
 At this stage, you're probably thinking: Why is it important to distinguish between these two cases?
 It is important because the Android operating system will reject the app's attempts at requesting
@@ -24,3 +23,6 @@ the user asking them to enable the permission via the device's Settings app.
 Here's an example of the app running on an Android 12 device:
 
 ![Demo of application](demo.gif)
+
+All of the logic of interest in this app is in
+the [MainActivity](src/main/java/com/tazkiyatech/app/MainActivity.kt) class.

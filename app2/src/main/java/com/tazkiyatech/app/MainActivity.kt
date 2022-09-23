@@ -1,8 +1,12 @@
 package com.tazkiyatech.app
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -13,7 +17,17 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
 
     private val locationPermissionRequest =
-        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { updateTextViews() }
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { map ->
+            map.forEach { mapEntry ->
+                if (mapEntry.value) {
+                    // given that the permission has been granted, clear the heuristic from persistent storage
+                    persistentStorage.userHasAcknowledgedLocationPermissionRationale = false
+                }
+            }
+            updateTextViews()
+        }
+
+    private val persistentStorage = PersistentStorage(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,16 +51,35 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)) {
-            val message = getString(R.string.location_permission_rationale)
-            val positiveButtonText = getString(android.R.string.ok)
-
             AlertDialog.Builder(this)
-                .setMessage(message)
-                .setPositiveButton(positiveButtonText) { _, _ -> requestLocationPermission() }
+                .setMessage(getString(R.string.location_permission_rationale_1))
+                .setPositiveButton(getString(android.R.string.ok)) { _, _ ->
+                    persistentStorage.userHasAcknowledgedLocationPermissionRationale = true
+                    requestLocationPermission()
+                }
+                .show()
+        } else if (userHasPreviouslyAcknowledgedLocationPermissionRationale()) {
+            AlertDialog.Builder(this)
+                .setMessage(getString(R.string.location_permission_rationale_2))
+                .setNegativeButton("No, I'm good", null)
+                .setPositiveButton("Ok, sure") { _, _ -> showApplicationDetailsSettingsScreen() }
                 .show()
         } else {
             requestLocationPermission()
         }
+    }
+
+    private fun userHasPreviouslyAcknowledgedLocationPermissionRationale(): Boolean {
+        return persistentStorage.userHasAcknowledgedLocationPermissionRationale
+    }
+
+    private fun showApplicationDetailsSettingsScreen() {
+        startActivity(
+            Intent(
+                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                Uri.fromParts("package", packageName, null)
+            )
+        )
     }
 
     private fun isLocationPermissionGranted(): Boolean {

@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">Location Permissions App2</string>
+
+    <string name="location_permission_rationale_1">Sharing your location will improve your experience of this app.</string>
+    <string name="location_permission_rationale_2">Enable location permissions in Settings to improve your experience of this app.</string>
+    <string name="request_location_permission">Request location permission</string>
+
+</resources>
