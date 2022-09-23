@@ -20,9 +20,7 @@ permission from the user after the user has denied the permission twice. It is n
 for the app to distinguish between the above two cases and, in the latter case, to show a message to
 the user asking them to enable the permission via the device's Settings app.
 
+All of the logic of interest in this app is in the [MainActivity](src/main/java/com/tazkiyatech/app/MainActivity.kt) class.
 Here's an example of the app running on an Android 12 device:
 
 ![Demo of application](demo.gif)
-
-All of the logic of interest in this app is in
-the [MainActivity](src/main/java/com/tazkiyatech/app/MainActivity.kt) class.
