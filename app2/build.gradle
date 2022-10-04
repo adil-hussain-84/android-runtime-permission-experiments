@@ -5,6 +5,7 @@ plugins {
 
 android {
     compileSdk 32
+    namespace 'com.tazkiyatech.app'
 
     defaultConfig {
         applicationId "com.tazkiyatech.locationpermissionexperiments.app2"
