@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -40,10 +39,6 @@ class MainActivity : AppCompatActivity() {
         updateTextViews()
     }
 
-    private fun shouldShowLocationPermissionRationale(): Boolean {
-        return shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)
-    }
-
     private fun onRequestLocationPermissionButtonClicked() {
         if (isLocationPermissionGranted()) {
             showToast("Nothing to do. App already has location permission.")
@@ -69,32 +64,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun userHasPreviouslyAcknowledgedLocationPermissionRationale(): Boolean {
-        return persistentStorage.userHasAcknowledgedLocationPermissionRationale
-    }
-
-    private fun showApplicationDetailsSettingsScreen() {
-        startActivity(
-            Intent(
-                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                Uri.fromParts("package", packageName, null)
-            )
-        )
-    }
-
-    private fun isLocationPermissionGranted(): Boolean {
-        return checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                || checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-    }
-
-    private fun requestLocationPermission() {
-        val permissions = arrayOf(
-            Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        )
-        locationPermissionRequest.launch(permissions)
-    }
-
     private fun updateTextViews() {
         findViewById<TextView>(R.id.isLocationPermissionGrantedTextView).text =
             if (isLocationPermissionGranted()) {
@@ -109,6 +78,36 @@ class MainActivity : AppCompatActivity() {
             } else {
                 "Should show request permission rationale? No"
             }
+    }
+
+    private fun isLocationPermissionGranted(): Boolean {
+        return checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                || checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun shouldShowLocationPermissionRationale(): Boolean {
+        return shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)
+    }
+
+    private fun userHasPreviouslyAcknowledgedLocationPermissionRationale(): Boolean {
+        return persistentStorage.userHasAcknowledgedLocationPermissionRationale
+    }
+
+    private fun requestLocationPermission() {
+        val permissions = arrayOf(
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        )
+        locationPermissionRequest.launch(permissions)
+    }
+
+    private fun showApplicationDetailsSettingsScreen() {
+        startActivity(
+            Intent(
+                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                Uri.fromParts("package", packageName, null)
+            )
+        )
     }
 
     @Suppress("SameParameterValue")
