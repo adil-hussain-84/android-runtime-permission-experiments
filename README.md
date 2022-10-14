@@ -5,5 +5,5 @@ Android's "request permission at runtime" APIs or a workaround for one of the pr
 
 The applications in this project are as follows:
 
-* [app1](app1) – Request runtime permissions example and problem statement
-* [app2](app2) – Request runtime permissions workaround for API limitations
+* [app1](app1) – Example of the "request permission at runtime" API limitations
+* [app2](app2) – Workaround for the "request permission at runtime" API limitations
