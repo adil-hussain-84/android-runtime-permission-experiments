@@ -36,6 +36,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+
+        if (isLocationPermissionGranted()) {
+            // given that the permission has been granted, clear the heuristic from persistent storage
+            persistentStorage.userHasAcknowledgedLocationPermissionRationale = false
+        }
+
         updateTextViews()
     }
 
