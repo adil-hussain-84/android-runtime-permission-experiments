@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)) {
+        if (shouldShowLocationPermissionRationale()) {
             AlertDialog.Builder(this)
                 .setMessage(getString(R.string.location_permission_rationale_1))
                 .setPositiveButton(getString(android.R.string.ok)) { _, _ ->
