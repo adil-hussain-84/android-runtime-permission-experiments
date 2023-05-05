@@ -8,7 +8,7 @@ android {
     namespace 'com.tazkiyatech.app'
 
     defaultConfig {
-        applicationId 'com.tazkiyatech.runtimepermissionexperiments.app2'
+        applicationId 'com.tazkiyatech.runtimepermissionexperiments.app3'
         minSdk 23
         targetSdk 33
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'

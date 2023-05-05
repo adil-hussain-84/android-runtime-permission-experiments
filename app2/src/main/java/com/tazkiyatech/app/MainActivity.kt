@@ -108,12 +108,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showApplicationDetailsSettingsScreen() {
-        startActivity(
-            Intent(
-                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                Uri.fromParts("package", packageName, null)
-            )
-        )
+        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            .setData(Uri.fromParts("package", packageName, null))
+
+        startActivity(intent)
     }
 
     @Suppress("SameParameterValue")

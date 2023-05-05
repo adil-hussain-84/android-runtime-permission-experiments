@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="app_name">Runtime Permissions App3</string>
+
+    <string name="enable_breaking_news_notifications">Enable \"Breaking news\" notifications</string>
+    <string name="post_breaking_news_notification">Post \"Breaking news\" notification</string>
+
+    <string name="breaking_news_notification_channel_name">Breaking news</string>
+    <string name="breaking_news_notification_channel_description">Notifications about world events that are important to you as and when they break.</string>
+    <string name="breaking_news_notification_content_title">Breaking news</string>
+    <string name="news_notification_channel_group_name">News</string>
+
+    <string name="post_notifications_permission_rationale_1">Tap \"Allow\" in the following popup to allow this app to post notifications.</string>
+    <string name="post_notifications_permission_rationale_2">Turn on notifications in Settings to allow this app to post notifications.</string>
+    <string name="post_notifications_permission_rationale_3">Turn on \"News\" notifications in Settings to allow this app to post news notifications.</string>
+    <string name="post_notifications_permission_rationale_4">Turn on \"Breaking news\" notifications in Settings to allow this app to post breaking news notifications.</string>
+
+</resources>
