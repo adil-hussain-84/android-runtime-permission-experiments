@@ -2,12 +2,12 @@
 
 ## Introduction
 
-This Android application demonstrates how to check whether the user has granted the application permission to post notifications
+This Android application demonstrates how to check whether the user has granted permission to post notifications
 and it demonstrates how to request permission where permission is required.
 
 This application not only checks and requests the [POST_NOTIFICATIONS](https://developer.android.com/reference/android/Manifest.permission#POST_NOTIFICATIONS) runtime permission
-as is required on Android 13+ devices but it goes further and checks that the notification channel is enabled.
-If the notification channel is disabled, it directs the user to the exact place in the Settings app where the notification channel can be enabled.
+as is required on Android 13+ devices but it goes further and checks whether the notification channel is enabled.
+If the notification channel is disabled, it directs the user to the exact place in the Settings app where they can enable the notification channel.
 
 ## Show me the code!
 
