@@ -7,3 +7,4 @@ The applications in this project are as follows:
 
 * [app1](app1) – Example of the "request permission at runtime" API limitations
 * [app2](app2) – Workaround for the "request permission at runtime" API limitations
+* [app3](app3) – Demonstration of how to request permission to post notifications and how to deal with rejection
