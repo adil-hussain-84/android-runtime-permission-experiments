@@ -1,8 +1,8 @@
 pluginManagement {
     repositories {
-        gradlePluginPortal()
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
 }
 
@@ -14,8 +14,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "android-runtime-permission-experiments"
-
-include ':app1'
-include ':app2'
-include ':app3'
+include(":app1")
+include(":app2")
+include(":app3")
