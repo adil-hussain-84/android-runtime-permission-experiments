@@ -3,8 +3,8 @@
 ## Introduction
 
 This Android application demonstrates how to request location permissions from users at runtime.
-More importantly, it demonstrates a gaping hole in the Android "request permission at
-runtime" APIs. That is, it is impossible to distinguish between the following two cases:
+More importantly, it demonstrates a gaping hole in the Android "request permission at runtime" APIs.
+That is, it is impossible to distinguish between the following two cases:
 
 1. The user has never denied the permission request.
 2. The user has denied the permission request twice.
