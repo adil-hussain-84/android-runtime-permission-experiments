@@ -18,23 +18,26 @@ the user asking them to enable the permission via the device's Settings app.
 
 ## Why is it impossible to distinguish between these two cases?
 
-These two cases are indistinguishable because in both cases
-the [shouldShowRequestPermissionRationale(permission:)](https://developer.android.com/reference/android/app/Activity#shouldShowRequestPermissionRationale(java.lang.String))
-method returns `false` and
-the [checkSelfPermission(permission:)](https://developer.android.com/reference/android/content/ContextWrapper#checkSelfPermission(java.lang.String))
-method
-returns [PackageManager.PERMISSION_DENIED](https://developer.android.com/reference/android/content/pm/PackageManager#PERMISSION_DENIED).
+These two cases are indistinguishable because in both cases the [shouldShowRequestPermissionRationale(permission:)][1]
+method returns `false` and the [checkSelfPermission(permission:)][2] method returns [PackageManager.PERMISSION_DENIED][3].
 
 ## Show me the code!
 
-All the logic of interest in this app is in the [MainActivity](src/main/java/com/tazkiyatech/app/MainActivity.kt) class.
+All the logic of interest in this app is in the [MainActivity][4] class.
 
 ## Demo
 
 Here is an example of the app running on an Android 12 device:
 
-![Demo of application](demo.gif)
+![Demo of application][5]
 
 ## Further reading
 
-See [app2](../app2) for a workaround to this problem.
+See [app2][6] for a workaround to this problem.
+
+[1]: https://developer.android.com/reference/android/app/Activity#shouldShowRequestPermissionRationale(java.lang.String)
+[2]: https://developer.android.com/reference/android/content/ContextWrapper#checkSelfPermission(java.lang.String)
+[3]: https://developer.android.com/reference/android/content/pm/PackageManager#PERMISSION_DENIED
+[4]: src/main/java/com/tazkiyatech/app/MainActivity.kt
+[5]: demo.gif
+[6]: ../app2
