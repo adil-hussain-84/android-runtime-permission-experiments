@@ -21,8 +21,8 @@ Here is an example of the app running on an Android 12 device:
 ## A word of caution
 
 Take care to clear the custom "user has acknowledged the request permission rationale" boolean in the scenario
-where the user grants the permission to the app after seeing the "request permission rationale" popup.
-If you don't do this, you'll end up in a scenario – when the app is killed and restarted – where you're directing
+where the user grants the permission to your app after seeing the "request permission rationale" popup.
+If you don't do this, you'll end up in a scenario – when your app is killed and restarted – where you're directing
 the user to the Settings app whilst you are in fact entitled to request permission from the user once more.
 
 ## Limitation of this workaround
@@ -38,7 +38,7 @@ when they're directed to the Settings app by your app, your app will then be in 
 In this state, your app will direct the user to the Settings app the next time it needs the permission
 even though it is entitled to request the permission from the user directly.
 
-You need to weigh up whether you prefer this limitation or the limitation outlined in [app][1].
+You need to weigh up whether you prefer this limitation or the limitation outlined in [app1][1].
 
 [1]: ../app1
 [2]: src/main/java/com/tazkiyatech/app/MainActivity.kt
