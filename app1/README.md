@@ -11,10 +11,10 @@ That is, it is impossible to distinguish between the following two cases:
 
 ## Why is it important to distinguish between these two cases?
 
-It is important to distinguish between these two cases because the Android operating system will reject the app's
-attempts at requesting permission from the user after the user has denied the permission twice. It is necessary,
-therefore, for the app to distinguish between the above two cases and, in the latter case, to show a message to
-the user asking them to enable the permission via the device's Settings app.
+It is important to distinguish between these two cases because the Android operating system will silently reject
+your app's request for permission from the user after the user has denied the permission twice. It is necessary,
+therefore, for your app to distinguish between the above two cases and, in the latter case, to show a message to
+the user asking them to enable the permission via the Settings app.
 
 ## Why is it impossible to distinguish between these two cases?
 
